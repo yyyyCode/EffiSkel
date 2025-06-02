@@ -49,4 +49,19 @@ EffiBench
 
 
 
+### 4. Generating
+
+
+
+### 5. Evaluate
+
+You can run <pre>test_one_solution.sh</pre> to evaluate generated codes:
+
+<pre>
+bash test_one_solution.sh
+python eval_metric.py
+</pre>
+
+
+
 
