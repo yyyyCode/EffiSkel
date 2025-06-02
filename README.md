@@ -5,7 +5,7 @@ This repository contains code, data, and models related to the ASE 2025 paper: "
 
 ---
 
-## Project Structure
+## 📁 Project Structure
 
 EffiSkel/
 ├── configs/ # Training and Inference Setup
@@ -27,7 +27,7 @@ EffiSkel/
 
 Please follow the requirements.txt file to install the relevant dependencies or run:
 
-pip install -r requirements.txt
+<pre> '''pip install -r requirements.txt'''</pre>
 
 Since our method modifies the transformers of huggingface, please make sure to install the same transformers as ours (we use transformers version 4.44.2):
 
