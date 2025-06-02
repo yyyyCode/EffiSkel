@@ -55,7 +55,7 @@ EffiBench
 
 ### 5. Evaluate
 
-You can run <pre>test_one_solution.sh</pre> to evaluate generated codes:
+You can run 'test_one_solution.sh' to evaluate generated codes:
 
 <pre>
 bash test_one_solution.sh
