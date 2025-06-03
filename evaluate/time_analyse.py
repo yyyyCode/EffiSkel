@@ -35,5 +35,5 @@ with open(filename1, 'w') as f:
     json.dump(solwTime, f, indent=2)  
 
 filename2 = str
-with open(filename1, 'w') as f:
+with open(filename2, 'w') as f:
     json.dump(fasterTime, f, indent=2)  
