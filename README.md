@@ -38,29 +38,40 @@ pip install -e .
   
 ## 📚 Datasets
 
-We used two datasets:
-
-    APPS
-
-    EffiBench
-
-You can download the APPS dataset here and EffiBench here.
+We used three datasets: APPS & EffiBench & APPS+EFFI
+You can download the APPS dataset [here](https://github.com/hendrycks/apps) and EffiBench [here](https://github.com/huangd1999/EffiBench).
 
 ## 🏋️ Finetuning
 
-(Instructions for fine-tuning models.)
+First, fine-tune the base model on the code of the APPS+EFFI dataset and the corresponding natural language description of the APPS dataset by running the following code:
+<pre>
+python train_base_model.py
+</pre>
+Then, fine-tune the base model in a multi-task framework :
+<pre>
+python train_mask_model.py
+python train_skeleton_model.py
+python train_total_model.py
+</pre>
 
 ## ✨ Generating
 
-(Instructions for generating code using the trained models.)
+Generate candidate codes for different fine-tuning methods:
+<pre>
+python generate_base.py
+python generate_mask.py
+python generate_skeleton.py
+python generate_total.py
+</pre>
 
 ## 📊 Evaluate
 
-You can run 'test_one_solution.sh' to evaluate generated codes:
-
+You can run "test_one_solution.sh" to evaluate the functional correctness and efficiency of the generated code:
 <pre>
+cd evaluate/metric
 bash test_one_solution.sh
-python eval_metric.py
+cd evaluate/metric
+bash test_one_solution.sh
 </pre>
 
 
