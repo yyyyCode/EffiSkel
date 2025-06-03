@@ -1,6 +1,6 @@
 # EffiSkel
 
-EffiSkel is a high-efficiency code generation framework with structured skeleton supervision.
+⚡️ EffiSkel is a high-efficiency code generation framework with structured skeleton supervision.
 This repository contains code, data, and models related to the ASE 2025 paper: "Chiseling Out Efficiency: Structured Skeleton Supervision for Efficient Code Generation".
 
 ---
@@ -9,23 +9,23 @@ This repository contains code, data, and models related to the ASE 2025 paper: "
 
 <pre>
 EffiSkel/
-├── configs/ # Training and Inference Setup
-├── data/ # Benchmark datasets
-├── Datasets/ # Datasets processing
-├── evaluate/ # Used to evaluate the functional correctness and efficiency of the code
-├── trainer/ 
-├── transformers/ 
-├── generate.py/
-├── train.py/
-├── requirement.py
-└── README.md
+├── configs/ # ⚙️ Training and Inference Setup
+├── data/ # 📊 Benchmark datasets
+├── Datasets/ # 📦 Datasets processing
+├── evaluate/ # 📝 Evaluate code correctness & efficiency
+├── trainer/ # 🎯 Training launcher
+├── transformers/ # 🧩 Model backbone and customization
+├── generate.py/ # 🚀 Generation code
+├── train.py/ 🏋️ Model training
+├── requirement.py/ # 📋 Project requirements
+└── README.md/ # 📖 Project documentation
 </pre>
   
 ---
 
 ## 🚀 Usage
 
-### 1. Installation
+### 1. Installation 🧰
 
 Please follow the requirements.txt file to install the relevant dependencies or run:
 
@@ -38,22 +38,25 @@ cd transformers
 pip install -e .
 </pre>
   
-### 2. Datasets
+### 2. Datasets 📚
 
-We used two datasets
+We used two datasets:
 
-APPS
-EffiBench
+    APPS
 
-### 3. Finetuning
+    EffiBench
 
+You can download the APPS dataset here and EffiBench here.
 
+### 3. Finetuning 🏋️
 
-### 4. Generating
+(Instructions for fine-tuning models.)
 
+### 4. Generating 🪄
 
+(Instructions for generating code using the trained models.)
 
-### 5. Evaluate
+### 5. Evaluate 📊
 
 You can run 'test_one_solution.sh' to evaluate generated codes:
 
