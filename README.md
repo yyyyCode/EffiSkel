@@ -38,7 +38,8 @@ pip install -e .
   
 ## 📚 Datasets
 
-We used three datasets: APPS & EffiBench & APPS+EFFI
+We used three datasets: APPS & EffiBench & APPS+EFFI.
+
 You can download the APPS dataset [here](https://github.com/hendrycks/apps) and EffiBench [here](https://github.com/huangd1999/EffiBench).
 
 ## 🏋️ Finetuning
@@ -70,7 +71,7 @@ You can run "test_one_solution.sh" to evaluate the functional correctness and ef
 <pre>
 cd evaluate/metric
 bash test_one_solution.sh
-cd evaluate/metric
+cd evaluate/metric_time
 bash test_one_solution.sh
 </pre>
 
