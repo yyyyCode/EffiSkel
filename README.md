@@ -23,9 +23,7 @@ EffiSkel/
   
 ---
 
-## 🚀 Usage
-
-### 1. Installation 🧰
+## 🧰 Installation 
 
 Please follow the requirements.txt file to install the relevant dependencies or run:
 
@@ -38,7 +36,7 @@ cd transformers
 pip install -e .
 </pre>
   
-### 2. Datasets 📚
+## 📚 Datasets
 
 We used two datasets:
 
@@ -48,15 +46,15 @@ We used two datasets:
 
 You can download the APPS dataset here and EffiBench here.
 
-### 3. Finetuning 🏋️
+## 🏋️ Finetuning
 
 (Instructions for fine-tuning models.)
 
-### 4. Generating 🪄
+## ✨ Generating
 
 (Instructions for generating code using the trained models.)
 
-### 5. Evaluate 📊
+## 📊 Evaluate
 
 You can run 'test_one_solution.sh' to evaluate generated codes:
 
