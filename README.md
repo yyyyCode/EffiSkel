@@ -52,6 +52,13 @@ pip install -e .
 We used three datasets: APPS & EffiBench & APPS+EFFI.
 
 You can download the APPS dataset [here](https://github.com/hendrycks/apps) and EffiBench [here](https://github.com/huangd1999/EffiBench).
+You can download the APPS+EFFI dataset from the [data](data/APPS+EFFI) folder.
+
+## 🤗 Model
+  - [Qwen2.5-Coder (1.5B)](https://huggingface.co/Qwen/Qwen2.5-Coder-1.5B-Instruct)
+  - [StarCoder2 (3B)](https://huggingface.co/bigcode/starcoder2-3b)
+  - [DeepSeek-Coder (6.7B)](https://huggingface.co/deepseek-ai/deepseek-coder-6.7b-instruct)
+  - [CodeLlama (7B)](https://huggingface.co/codellama/CodeLlama-7b-Python-hf)
 
 ## 🏋️ Finetuning
 
