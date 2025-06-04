@@ -55,8 +55,7 @@ You can download the APPS dataset [here](https://github.com/hendrycks/apps) and 
 You can download the APPS+EFFI dataset from the [data](data/APPS+EFFI) folder.
 
 ## 🤗 Model
-We fine-tune on four models
-
+We fine-tune on four models:
   - [Qwen2.5-Coder (1.5B)](https://huggingface.co/Qwen/Qwen2.5-Coder-1.5B-Instruct)
   - [StarCoder2 (3B)](https://huggingface.co/bigcode/starcoder2-3b)
   - [DeepSeek-Coder (6.7B)](https://huggingface.co/deepseek-ai/deepseek-coder-6.7b-instruct)
