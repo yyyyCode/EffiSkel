@@ -8,9 +8,9 @@ This repository contains code, data, and models related to the ASE 2025 paper: "
 <details>
   <summary>Contributions</summary>
 
-  - 1 Conceptual Innovation. We propose the concept of an \emph{efficiency skeleton} to highlight structural aspects that strongly influence code efficiency. While efficiency also depends on external factors (e.g., hardware or compilers), we focus on structural properties as they offer actionable, learnable signals for LLMs. By using these patterns as explicit supervision—rather than relying solely on code examples—we guide models to encode algorithmic best practices and performance-aware programming more effectively.
+  - 1 Conceptual Innovation. We propose the concept of an efficiency skeleton to highlight structural aspects that strongly influence code efficiency. While efficiency also depends on external factors (e.g., hardware or compilers), we focus on structural properties as they offer actionable, learnable signals for LLMs. By using these patterns as explicit supervision—rather than relying solely on code examples—we guide models to encode algorithmic best practices and performance-aware programming more effectively.
   - 2 Technical Advances. We propose three complementary strategies to systematically extract representative efficiency skeletons. Moreover, we develop a structure-aware multi-task learning framework that jointly optimizes skeleton prediction and code generation, effectively embedding efficiency insights directly into LLM training.
-  - 3 Empirical Validation. We introduce the \textit{APPS+EFFI} benchmark, explicitly focusing on efficiency-critical code generation tasks, and demonstrate through extensive experiments that \textsc{EffiSkel} achieves significant improvements in runtime efficiency across multiple benchmarks.
+  - 3 Empirical Validation. We introduce the APPS+EFFI benchmark, explicitly focusing on efficiency-critical code generation tasks, and demonstrate through extensive experiments that EffiSkel achieves significant improvements in runtime efficiency across multiple benchmarks.
 
 </details>
 
