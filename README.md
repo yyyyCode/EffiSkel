@@ -5,6 +5,14 @@ This repository contains code, data, and models related to the ASE 2025 paper: "
 
 ![EffiSkel Framework](assets/images/EffiSkel.png)
 
+<details>
+  <summary>Contribution</summary>
+
+  - 1
+  - 2
+
+</details>
+
 ---
 
 ## 📁 Project Structure
