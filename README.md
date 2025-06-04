@@ -62,6 +62,14 @@ We fine-tune on four models:
   - [DeepSeek-Coder (6.7B)](https://huggingface.co/deepseek-ai/deepseek-coder-6.7b-instruct)
   - [CodeLlama (7B)](https://huggingface.co/codellama/CodeLlama-7b-Python-hf)
 
+## 🧲 Extracting
+Three skeletons can be extracted by the following code:
+<pre>
+python SMS.py
+python SSS.py
+python TAS.py
+</pre>
+
 ## 🏋️ Finetuning
 
 First, fine-tune the base model on the code of the APPS+EFFI dataset and the corresponding natural language description of the APPS dataset by running the following code:
