@@ -3,7 +3,6 @@ import astor
 import io
 import tokenize
 import keyword
-import pprint
 import json
 from io import StringIO
 from collections import defaultdict

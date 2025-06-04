@@ -1,6 +1,4 @@
-import os
 import json
-import token_common as tc
 from reindent import run as run_reindent
 import io
 import tokenize

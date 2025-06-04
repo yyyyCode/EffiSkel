@@ -1,6 +1,4 @@
-import os
 import json
-import token_common as tc
 from reindent import run as run_reindent
 import io
 import tokenize
@@ -32,7 +30,6 @@ def reindent_code(codestr):
     )
 
     return ret.getvalue()
-# 从代码字符串中提取token
 def get_tokens_from_code(code):
     tokens = []
     code_io = StringIO(code)
