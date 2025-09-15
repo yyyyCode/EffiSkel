@@ -1,7 +1,7 @@
 # EffiSkel
 
 ⚡️ EffiSkel is a high-efficiency code generation framework with structured skeleton supervision.
-This repository contains code, data, and models related to the ASE 2025 paper: "Chiseling Out Efficiency: Structured Skeleton Supervision for Efficient Code Generation".
+This repository contains code, data, and models related to the FSE 2025 paper: "Chiseling Out Efficiency: Structured Skeleton Supervision for Efficient Code Generation".
 
 ![EffiSkel Framework](assets/images/EffiSkel.png)
 
@@ -49,11 +49,13 @@ pip install -e .
   
 ## 📚 Datasets
 
-We used three datasets: APPS & EffiBench & APPS+EFFI.
-
-You can download the APPS dataset [here](https://github.com/hendrycks/apps) and EffiBench [here](https://github.com/huangd1999/EffiBench).
+We use the datasets APPS+EFFI for training.
 
 You can download the APPS+EFFI dataset from the [data](data/APPS+EFFI) folder.
+
+We used five datasets for evaluation: Mercury & ENAMEL & APPS & EffiBench & HumanEval-X(Java).
+
+You can download the  Mercury dataset [here](https://github.com/Elfsong/Mercury),  ENAMEL dataset [here](https://github.com/q-rz/enamel),  APPS dataset [here](https://github.com/hendrycks/apps) , EffiBench [here](https://github.com/huangd1999/EffiBench) and  HumanEval-X(Java) dataset [here](https://github.com/openai/human-eval).
 
 ## 🤗 Model
 We fine-tune on four models:
@@ -61,6 +63,7 @@ We fine-tune on four models:
   - [StarCoder2 (3B)](https://huggingface.co/bigcode/starcoder2-3b)
   - [DeepSeek-Coder (6.7B)](https://huggingface.co/deepseek-ai/deepseek-coder-6.7b-instruct)
   - [CodeLlama (7B)](https://huggingface.co/codellama/CodeLlama-7b-Python-hf)
+  - [Qwen2.5-Coder (7B)](https://huggingface.co/Qwen/Qwen2.5-Coder-7B-Instruct)
 
 ## 🧲 Extracting
 Three skeletons can be extracted by the following code:
@@ -102,6 +105,14 @@ bash test_one_solution.sh
 cd evaluate/metric_time
 bash test_one_solution.sh
 </pre>
+
+## 🔍 Qualitative Analysis
+[successfully generate efficient code](assets/images/efficient.png)
+[unsuccessfully generate efficient code](assets/images/inefficient.png)
+[unsuccessfully generate current code](assets/images/wringanswer.png)
+
+
+
 
 
 
