@@ -1,7 +1,7 @@
 # EffiSkel
 
 ⚡️ EffiSkel is a high-efficiency code generation framework with structured skeleton supervision.
-This repository contains code, data, and models related to the FSE 2025 paper: "Chiseling Out Efficiency: Structured Skeleton Supervision for Efficient Code Generation".
+This repository contains code, data, and models related to the FSE 2026 paper: "Chiseling Out Efficiency: Structured Skeleton Supervision for Efficient Code Generation".
 
 ![EffiSkel Framework](assets/images/EffiSkel.png)
 
