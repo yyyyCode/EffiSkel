@@ -109,7 +109,7 @@ bash test_one_solution.sh
 ## 🔍 Qualitative Analysis
 ![successfully generate efficient code](assets/images/efficient.png)
 ![unsuccessfully generate efficient code](assets/images/inefficient.png)
-![unsuccessfully generate current code](assets/images/wringanswer.png)
+![unsuccessfully generate current code](assets/images/wronganswer.png)
 
 
 
