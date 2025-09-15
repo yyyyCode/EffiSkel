@@ -1,0 +1,123 @@
+import os
+import pprint
+import json
+import transformers
+import torch
+from Datasets.APPSBaseSkeletonDataset import APPSBaseDataset
+from trainers.trainer_codeskeleton import Trainer_codeskeleton  
+from peft import get_peft_model, LoraConfig, TaskType
+import torch
+import torch.multiprocessing
+torch.multiprocessing.set_sharing_strategy('file_system')
+os.environ["TOKENIZERS_PARALLELISM"] = "false"
+
+peft_config = LoraConfig(
+    task_type=TaskType.CAUSAL_LM, inference_mode=False, r=8, lora_alpha=32, lora_dropout=0.1
+)
+
+def run_training(args, train_data):
+
+    tokenizer = transformers.AutoTokenizer.from_pretrained(args.model_path)
+    tokenizer.pad_token = tokenizer.eos_token
+    model = transformers.AutoModelForCausalLM.from_pretrained(
+        args.model_path, 
+        torch_dtype=torch.float16, 
+        pad_token_id=tokenizer.eos_token_id,
+        tuning_mode=args.tuning_mode, 
+        clone_cs_head=args.clone_cs_head)
+    if args.clone_cs_head:
+        # Optional: clone a seperate CS head and initialize the model weights from finetuned LM head 
+        print("Initializing CodeSkeleton head with finetuned LM head...")
+        lm_head_params = model.lm_head.weight.detach().numpy()
+        model.cs_head.weight = torch.nn.Parameter(torch.tensor(lm_head_params))
+
+    model = get_peft_model(model, peft_config)
+    model.print_trainable_parameters()
+    print('Finished loading model {}'.format(args.model))
+
+    start_iteration = 0
+    train_data.start_iteration = start_iteration
+    print(f"Starting main loop")
+
+    training_args = transformers.TrainingArguments(
+        output_dir=args.save_dir,
+        overwrite_output_dir=True,
+
+        do_train=True,
+        do_eval=False,
+        do_predict=True,
+        evaluation_strategy='no',
+        eval_steps=0,
+
+        num_train_epochs=args.epochs,
+        per_device_train_batch_size=args.batch_size_per_replica,
+        gradient_accumulation_steps=args.grad_acc_steps,
+
+        learning_rate=args.lr,
+        weight_decay=0.05,
+        lr_scheduler_type='constant_with_warmup',
+
+        logging_dir=args.save_dir,
+        logging_first_step=True,
+        logging_steps=args.log_freq,
+        save_steps=args.save_freq,
+        save_total_limit=args.save_total_limit,
+
+        dataloader_drop_last=True,
+        dataloader_num_workers=0 if args.db else 8,
+
+        local_rank=args.local_rank,
+
+        deepspeed=args.deepspeed,
+        fp16=args.fp16,
+    )
+    trainer = Trainer_codeskeleton(
+        model=model,
+        args=training_args,
+        train_dataset=train_data,
+        tokenizer=tokenizer,
+    )
+    trainer.train()
+
+    if args.local_rank == 0:
+        model.save_pretrained(os.path.join(args.save_dir, "final_checkpoint"))
+
+def get_dataset(args):
+
+    fnames = os.listdir(args.train_path)
+
+    # train in debugging mode with small data split
+    if args.db:
+        fnames = fnames[:50]
+
+    train_data = APPSBaseDataset(
+        dataroot=args.train_path,
+        problem_dirs=fnames,
+        mode=args.model,
+        max_tokens=1600,
+        sample_mode=args.sample_mode,
+    )
+
+    return train_data
+
+def main(args):
+
+    argsdict = vars(args)
+    print(pprint.pformat(argsdict))
+
+    os.makedirs(args.save_dir, exist_ok=True)
+
+    # Load dataset
+    train_data = get_dataset(args)
+
+    # Save args to file
+    json.dump(argsdict, open(os.path.join(args.save_dir, "args.json"), 'w'))
+
+    # Load and train model; save model checkpoints
+    run_training(args, train_data)
+
+
+if __name__ == "__main__":
+    from configs.train_base_skeleton_configs import *
+    
+    main(args)
