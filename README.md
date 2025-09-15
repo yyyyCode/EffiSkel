@@ -10,7 +10,7 @@ This repository contains code, data, and models related to the FSE 2025 paper: "
 
   - 1 Conceptual Innovation. We propose the concept of an efficiency skeleton to highlight structural aspects that strongly influence code efficiency. While efficiency also depends on external factors (e.g., hardware or compilers), we focus on structural properties as they offer actionable, learnable signals for LLMs. By using these patterns as explicit supervision—rather than relying solely on code examples—we guide models to encode algorithmic best practices and performance-aware programming more effectively.
   - 2 Technical Advances. We propose three complementary strategies to systematically extract representative efficiency skeletons. Moreover, we develop a structure-aware multi-task learning framework that jointly optimizes skeleton prediction and code generation, effectively embedding efficiency insights directly into LLM training.
-  - 3 Empirical Validation. We introduce the APPS+EFFI benchmark, explicitly focusing on efficiency-critical code generation tasks, and demonstrate through extensive experiments that EffiSkel achieves significant improvements in runtime efficiency across multiple benchmarks.
+  - 3 Empirical Validation. We introduce the APPS+EFFI benchmark, explicitly focusing on efficiency-critical code generation tasks, and demonstrate through extensive experiments that EffiSkel achieves significant improvements in runtime efficiency across multiple programming languages and benchmarks.
 
 </details>
 
@@ -53,7 +53,7 @@ We use the datasets APPS+EFFI for training.
 
 You can download the APPS+EFFI dataset from the [data](data/APPS+EFFI) folder.
 
-We used five datasets for evaluation: Mercury & ENAMEL & APPS & EffiBench & HumanEval-X(Java).
+We use five datasets for evaluation: Mercury & ENAMEL & APPS & EffiBench & HumanEval-X(Java).
 
 You can download the  Mercury dataset [here](https://github.com/Elfsong/Mercury),  ENAMEL dataset [here](https://github.com/q-rz/enamel),  APPS dataset [here](https://github.com/hendrycks/apps) , EffiBench [here](https://github.com/huangd1999/EffiBench) and  HumanEval-X(Java) dataset [here](https://github.com/openai/human-eval).
 
@@ -108,7 +108,9 @@ bash test_one_solution.sh
 
 ## 🔍 Qualitative Analysis
 ![successfully generate efficient code](assets/images/efficient.png)
+
 ![unsuccessfully generate efficient code](assets/images/inefficient.png)
+
 ![unsuccessfully generate current code](assets/images/wronganswer.png)
 
 
