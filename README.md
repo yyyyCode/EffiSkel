@@ -106,6 +106,8 @@ cd evaluate/metric_time
 bash test_one_solution.sh
 </pre>
 
+---
+
 ## 🔍 Qualitative Analysis
 ![successfully generate efficient code](assets/images/efficient.png)
 
