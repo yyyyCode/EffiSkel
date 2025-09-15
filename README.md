@@ -108,11 +108,21 @@ bash test_one_solution.sh
 
 ## 🔍 Qualitative Analysis
 ![successfully generate efficient code](assets/images/efficient.png)
-
+Fig. 1
 ![unsuccessfully generate efficient code](assets/images/inefficient.png)
-
+Fig. 2
 ![unsuccessfully generate current code](assets/images/wronganswer.png)
+Fig. 3
 
+Qualitative analysis (Figs. 1–3). Aggregate metrics show trends, but they don’t explain why a model writes faster or slower code on a given task. We therefore look at three small case studies from Code Llama (7B) on Mercury and APPS, comparing \textsc{EffiSkel} and \textsc{CodeDPO}.
+
+Fig. 1 — \textsc{EffiSkel} is faster. \textsc{CodeDPO} runs in 0.827 ms; \textsc{EffiSkel} runs in 0.625 ms. \textsc{EffiSkel} tends to write integer loops with a simple sentinel early exit (e.g., checking n==1 or n==4). This avoids string conversions and extra helper calls. The big-O is the same, but the constant cost is smaller. By contrast, \textsc{CodeDPO} often uses fast/slow pointers plus converting n to a string, which creates extra objects and interpreter work.
+
+Fig. 2 — \textsc{CodeDPO} is faster. When speed depends on the right library call, \textsc{CodeDPO} often chooses a fused call (e.g., a single find() that both checks and returns the index). \textsc{EffiSkel} often writes “check then index” (needle in haystack + haystack.index(needle)), which searches twice on hits. That extra pass adds constant overhead. This suggests we should teach \textsc{EffiSkel} these fused patterns during training.
+
+Fig. 3 — both are wrong, but \textsc{EffiSkel} is easier to fix. On spec-sensitive tasks (e.g., “exactly k bits differ,” dynamic bit width, edge cases), both models can be incorrect. \textsc{EffiSkel} usually produces cleaner structure: a small helper, early exit, and clear boundary checks. The bug is often a small semantic slip (exact vs. at-most, bit-width choice) and can be patched locally. \textsc{CodeDPO} more often mixes cases or duplicates code, which tangles control flow and makes the fix larger.
+
+Summary. \textsc{EffiSkel} more often writes low-allocation, early-exit code and gains speed; it falls behind when a single well-chosen library call is the key; and even when wrong, its code is typically easier to repair. 
 
 
 
