@@ -1,7 +1,7 @@
 # EffiSkel
 
 ⚡️ EffiSkel is a high-efficiency code generation framework with structured skeleton supervision.
-This repository contains code, data, and models related to the ASE 2025 paper: "Chiseling Out Efficiency: Structured Skeleton Supervision for Efficient Code Generation".
+This repository contains code, data, and models related to the FSE 2025 paper: "Chiseling Out Efficiency: Structured Skeleton Supervision for Efficient Code Generation".
 
 ![EffiSkel Framework](assets/images/EffiSkel.png)
 
@@ -49,14 +49,16 @@ pip install -e .
   
 ## 📚 Datasets
 
-We used three datasets: APPS & EffiBench & APPS+EFFI.
-
-You can download the APPS dataset [here](https://github.com/hendrycks/apps) and EffiBench [here](https://github.com/huangd1999/EffiBench).
+We use the dataset APPS+EFFI for training.
 
 You can download the APPS+EFFI dataset from the [data](data/APPS+EFFI) folder.
 
+We use five datasets for evaluation: Mercury & ENAMEL & APPS & EffiBench &HumanEval-X (Java).
+
+You can download the APPS dataset [here](https://github.com/hendrycks/apps) and EffiBench [here](https://github.com/huangd1999/EffiBench).
+
 ## 🤗 Model
-We fine-tune on four models:
+We fine-tune on five models:
   - [Qwen2.5-Coder (1.5B)](https://huggingface.co/Qwen/Qwen2.5-Coder-1.5B-Instruct)
   - [StarCoder2 (3B)](https://huggingface.co/bigcode/starcoder2-3b)
   - [DeepSeek-Coder (6.7B)](https://huggingface.co/deepseek-ai/deepseek-coder-6.7b-instruct)
@@ -103,6 +105,7 @@ cd evaluate/metric_time
 bash test_one_solution.sh
 </pre>
 
+## Qualitative Analysis
 
 
 
